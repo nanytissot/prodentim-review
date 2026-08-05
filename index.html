@@ -325,6 +325,72 @@
     margin-top:16px;
   }
 
+  /* ---------- secondary CTAs (hero + mid-page) ---------- */
+  .cta-button-sm{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--coral);
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    padding:12px 24px;
+    border-radius:4px;
+    text-decoration:none;
+    transition:background 0.15s ease;
+  }
+  .cta-button-sm:hover{background:var(--coral-dark);}
+  .cta-button-outline{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:transparent;
+    color:var(--teal);
+    border:1px solid var(--teal);
+    font-size:14px;
+    font-weight:600;
+    padding:12px 24px;
+    border-radius:4px;
+    text-decoration:none;
+    transition:background 0.15s ease;
+  }
+  .cta-button-outline:hover{background:var(--sage-light);}
+  .hero-cta{margin-top:32px;}
+  .midpage-cta{
+    margin-top:28px;
+    padding-top:24px;
+    border-top:1px dashed var(--line);
+  }
+  .midpage-cta .cta-note{margin-top:12px; margin-bottom:0;}
+
+  /* ---------- sticky bar ---------- */
+  .sticky-bar{
+    position:fixed;
+    bottom:0; left:0; right:0;
+    background:var(--card);
+    border-top:1px solid var(--line);
+    padding:14px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    z-index:100;
+    transform:translateY(100%);
+    transition:transform 0.25s ease;
+  }
+  .sticky-bar.visible{transform:translateY(0);}
+  .sticky-bar-text{
+    font-size:13px;
+    color:var(--ink-soft);
+    max-width:400px;
+  }
+  .sticky-bar-text strong{color:var(--ink); font-weight:600;}
+  body{padding-bottom:0;}
+  @media (max-width:640px){
+    .sticky-bar-text{display:none;}
+    .sticky-bar{justify-content:center;}
+  }
+
   /* ---------- footer ---------- */
   footer{
     border-top:1px solid var(--line);
@@ -373,6 +439,12 @@
       <div>Reading time<strong>4 min</strong></div>
       <div>Field<strong>Oral microbiology</strong></div>
       <div>Relevant to<strong>Gum sensitivity, breath, plaque</strong></div>
+    </div>
+    <div class="hero-cta">
+      <a class="cta-button-sm" href="https://1d5d6gca7ib3bx7m5fp21ps7e5.hop.clickbank.net" target="_blank" rel="noopener">
+        See the product behind this research
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </div>
 </div>
@@ -439,6 +511,13 @@
         <div class="gauge-track"><div class="gauge-fill fill-after"></div></div>
       </div>
       <div class="gauge-caption">Illustration of the concept behind probiotic repopulation, based on the manufacturer's description. Individual results vary and this is not a diagnostic tool.</div>
+    </div>
+    <div class="midpage-cta">
+      <a class="cta-button-outline" href="https://1d5d6gca7ib3bx7m5fp21ps7e5.hop.clickbank.net" target="_blank" rel="noopener">
+        View ProDentim's full formula
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="#235C52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p class="cta-note">Opens the official product page in a new tab</p>
     </div>
   </div>
 </section>
@@ -519,6 +598,26 @@
     </div>
   </div>
 </footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-bar-text">Curious about oral probiotics? <strong>See the full ProDentim formula.</strong></div>
+  <a class="cta-button-sm" href="https://1d5d6gca7ib3bx7m5fp21ps7e5.hop.clickbank.net" target="_blank" rel="noopener">
+    View the report
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+<script>
+  var stickyBar = document.getElementById('stickyBar');
+  var heroHeight = document.querySelector('.hero').offsetHeight;
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > heroHeight){
+      stickyBar.classList.add('visible');
+    } else {
+      stickyBar.classList.remove('visible');
+    }
+  });
+</script>
 
 </body>
 </html>
