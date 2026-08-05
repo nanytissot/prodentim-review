@@ -7,6 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18373177761"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18373177761');
+</script>
 <style>
   :root{
     --bg: #F6F4EF;
@@ -616,6 +624,30 @@
     } else {
       stickyBar.classList.remove('visible');
     }
+  });
+</script>
+
+<script>
+  // Replace CONVERSION_LABEL below with the value Google Ads gives you
+  // when you create the conversion action (Tools > Conversions > New
+  // conversion action > Website > Click). It looks like "AbC-D_efGHij123".
+  var CONVERSION_LABEL = 'CONVERSION_LABEL';
+
+  var affiliateLinks = document.querySelectorAll('a[href*="hop.clickbank.net"]');
+  affiliateLinks.forEach(function(link){
+    link.addEventListener('click', function(){
+      if (typeof gtag === 'function' && CONVERSION_LABEL !== 'CONVERSION_LABEL') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18373177761/' + CONVERSION_LABEL
+        });
+      }
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', {
+          'event_category': 'affiliate_link',
+          'event_label': link.textContent.trim()
+        });
+      }
+    });
   });
 </script>
 
